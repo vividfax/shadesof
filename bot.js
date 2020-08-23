@@ -14,15 +14,6 @@ let ctx = canvas.getContext("2d");
 function main() {
 
     const path = '/output/test.png';
-    // let colorways = getColorways();
-
-    // drawGradient(colorways[0].hex, colorways[1].hex);
-    // savePng(path);
-
-    // let content = {
-    //     text: makeText(colorways),
-    //     media: __dirname + path,
-    // }
 
     let beige = getBeige();
     drawBeige(beige.hex);
@@ -63,43 +54,9 @@ function getRandom(list) {
     return list[index];
 }
 
-function makeText(colorways) {
-
-    let a = colorways[0].name;
-    a = stripNumbers(a);
-    a = a.split(" ");
-    a = a[0]
-
-    let b = colorways[1].name;
-    b = stripNumbers(b);
-    b = b.split(" ");
-    b = b[b.length - 1];
-
-    let text = [a, b].join(" ");
-    console.log(text);
-    return text.toLowerCase();
-}
-
 function stripNumbers(str) {
 
     return str.replace(/[0-9]/g, '').trim();
-}
-
-function drawGradient(a, b) {
-
-    ctx.fillStyle = b;
-    ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
-    ctx.fillStyle = a;
-
-    for (let y = 0; y < HEIGHT; y++) {
-        for (let x = 0; x < WIDTH; x++) {
-
-            if (y / HEIGHT < Math.random(1)) {
-                ctx.fillRect(x, y, 1, 1);
-            }
-        }
-    }
 }
 
 function getBeige() {
